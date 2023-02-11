@@ -1,0 +1,12 @@
+#Navbar {
+  width: 100vw;
+  height: 50px;
+  background-color: rgb(39, 37, 34);
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(152, 151, 149);
+}
+#Navbar .heading2 {
+  margin-left: 20px;
+}

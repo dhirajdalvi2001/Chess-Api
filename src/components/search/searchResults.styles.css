@@ -1,0 +1,86 @@
+#SearchResults {
+  min-width: 300px;
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgb(152, 151, 149);
+  justify-content: center;
+}
+.search-box {
+  margin: 20px;
+  width: 90%;
+  height: 50px;
+  display: flex;
+  background-color: antiquewhite;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.searchHistory {
+  width: 100%;
+  height: 100%;
+}
+.searchInput {
+  width: 300px;
+  height: 100%;
+  border: 0;
+  text-indent: 14px;
+  outline: none;
+  background-color: rgb(152, 151, 149);
+  color: #fff;
+}
+.searchInput::placeholder {
+  color: #fff;
+}
+.searchButton {
+  width: 20%;
+  height: 100%;
+  border: 0;
+  outline: none;
+  position: relative;
+  right: 0;
+  background-color: rgb(152, 151, 149);
+  color: #fff;
+  transition: all 0.3s;
+}
+.searchButton:hover {
+  cursor: pointer;
+  background-color: rgb(39, 37, 34);
+  color: #fff;
+}
+#searchCard {
+  margin: 10px 20px;
+  height: auto;
+  display: flex;
+  background-color: rgb(152, 151, 149);
+  color: #fff;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+#searchCard:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+#searchCard .heading3 {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+}
+#searchCard .profilePicArea {
+  margin: 10px 0 10px 10px;
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 800px) {
+  #SearchResults {
+    width: 100%;
+  }
+  .search-box {
+    width: auto;
+    position: sticky;
+    bottom: 0;
+  }
+  .searchInput {
+    width: 80%;
+  }
+}

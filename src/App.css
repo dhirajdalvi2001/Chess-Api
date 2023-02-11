@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.Body {
+  width: 100vw;
+  min-height: calc(100vh - 52px);
+  height: max-content;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(49, 46, 43);
+}
+
+.heading1,
+.heading2,
+.heading3,
+.heading4,
+.heading5,
+.heading6 {
+  text-transform: capitalize;
+}
+@media screen and (max-width: 800px) {
+  .Body {
+    flex-direction: column-reverse;
+  }
+}
