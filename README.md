@@ -1,70 +1,29 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Chess Api 
+  
+## Steps:
+Step 1 : Click on the search input box.  
+Step 2 : Search any username which you want to search from the chess api and press enter or click the search button.  
+Step 3 : Webpage will then fetch the data.  
+Step 4 : Once the data is available you will see the user details.  
+Step 5 : Basic details with few stats will be visible.  
+  
+## Images  
+###  Homepage (Before any changes)  
+![image](https://user-images.githubusercontent.com/91786927/218267857-f1073cb9-5dc6-43de-b457-81a19d14b807.png)  
+  
+###  Homepage (After searching for a user)  
+![image](https://user-images.githubusercontent.com/91786927/218267873-e3379eca-cfe3-4f6b-8d30-580583f2f253.png)  
+  
+###  Homepage (After User details are fetched)  
+![image](https://user-images.githubusercontent.com/91786927/218267895-526f514c-5f0e-41b9-8a2a-5d4ce9d40068.png)  
+  
+##  Mobile View
+  
+###  Homepage (Before any changes)  
+![image](https://user-images.githubusercontent.com/91786927/218268012-d6b6f5ba-ea18-4b0e-b812-05a040c221e2.png)  
+  
+###  Homepage (After searching for a user)  
+![image](https://user-images.githubusercontent.com/91786927/218267988-e2195e22-8f02-48d3-a1a4-88474763259d.png)  
+  
+###  Homepage (After User details are fetched)  
+![image](https://user-images.githubusercontent.com/91786927/218267917-dab72f4b-930c-4fe2-a845-e8b64e253516.png)  
