@@ -5,22 +5,13 @@ import defaultPP from "../../../public/defaultPP.png";
 import "./searchResults.styles.css";
 
 let nextId = 0;
+const LOCAL_STORAGE_KEY = "searchHistory";
+
 const SearchResults = () => {
   const { username, setUsername } = useContext(usernameContext);
-  const [searchHistory, setSearchHistory] = useState([
-    // {
-    //   name: "cypherisnoob",
-    //   avatar: defaultPP,
-    // },
-    // {
-    //   name: "samayraina",
-    //   avatar: defaultPP,
-    // },
-    // {
-    //   name: "vidityt",
-    //   avatar: defaultPP,
-    // },
-  ]);
+  const [searchHistory, setSearchHistory] = useState(() => {
+    return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  });
   const [searchInputValue, setSearchInputValue] = useState("");
   let updatedValue = {};
   function changeInput(e) {
@@ -57,8 +48,17 @@ const SearchResults = () => {
   }, [username.avatar]);
 
   useEffect(() => {
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
     setSearchInputValue("");
   }, [searchHistory]);
+
+  // useEffect(() => {
+  //   const searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+  //   console.log("searchHistory : " + searchHistory.length);
+  //   if (searchHistory) {
+  //     setSearchHistory(searchHistory);
+  //   }
+  // }, []);
 
   function handleKeyPress(e) {
     if (e.keyCode === 13) {
@@ -94,7 +94,11 @@ const SearchResults = () => {
             return username.avatar ? (
               <SearchCard username={e.name} avatar={e.avatar} key={e} />
             ) : (
-              <SearchCard username={e.name} avatar={defaultPP} key={e} />
+              <SearchCard
+                username={e.name}
+                avatar={e.avatar ? e.avatar : defaultPP}
+                key={e}
+              />
             );
           })
           .reverse()}
