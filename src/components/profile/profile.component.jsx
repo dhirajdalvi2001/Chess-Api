@@ -6,7 +6,7 @@ import { AiTwotoneThunderbolt } from "react-icons/ai";
 import { GiSilverBullet } from "react-icons/gi";
 import { HiPuzzle } from "react-icons/hi";
 import "./profile.styles.css";
-import { CircularProgress, LinearProgress } from "@mui/material";
+import { CircularProgress } from "@mui/material";
 
 const Profile = () => {
   const { username, setUsername } = useContext(usernameContext);
@@ -15,18 +15,19 @@ const Profile = () => {
 
   const fetchPlayerInfo = async () => {
     setLoading(!loading);
-    console.log(username.name);
+    // console.log(username);
+    console.log(username.code === 0);
     return await fetch("https://api.chess.com/pub/player/" + username)
       .then((response) => response.json())
       .then(async (data) => {
         var countryName = "";
         countryName = data.country;
         updatedValue = {
-          name: data.username,
-          followers: data.followers,
+          name: data.username ? data.username : "",
+          followers: data.followers ? data.followers : "",
           avatar: data.avatar ? data.avatar : defaultPP,
-          title: data.title,
-          status: data.status,
+          title: data.title ? data.title : "",
+          status: data.status ? data.status : "",
         };
         setUsername((e) => ({
           ...e,
@@ -37,7 +38,7 @@ const Profile = () => {
           .then((temp) => {
             countryName = temp.name;
             updatedValue = {
-              country: countryName,
+              country: countryName ? countryName : "",
             };
             setUsername((e) => ({
               ...e,
@@ -48,11 +49,7 @@ const Profile = () => {
           .then((response) => response.json())
           .then(async (data) => {
             updatedValue = {
-              stats: data,
-              // blitz: data.chess_blitz.last.rating,
-              // bullet: data.chess_bullet.last.rating,
-              // rapid: data.chess_rapid.last.rating,
-              // rush: data.puzzle_rush.last.rating,
+              stats: data ? data : "",
             };
             setUsername((e) => ({
               ...e,
@@ -68,6 +65,7 @@ const Profile = () => {
 
   useEffect(() => {
     username && fetchPlayerInfo();
+    console.log(username.stats);
   }, [username]);
 
   const statsData = [
@@ -123,48 +121,62 @@ const Profile = () => {
               </div>
             </>
           )}
-          {console.log(username)} {/*object for username*/}
+          {/* {console.log(username)} object for username */}
         </div>
       )}
-      {username.stats && (
-        <div className="profileStats-container">
-          {loading ? (
-            <>
-              <span class="loader">
-                <span class="loader-inner"></span>
-              </span>
-            </>
-          ) : (
-            <>
-              {statsData.map((e) => {
-                return (
-                  <div className="stats-box">
-                    <div className="icon-box">{e.icon}</div>
-                    <h3>{e.type}</h3>
-                    <h3 className="rating">
-                      {username.stats &&
-                      username.status !== "closed" &&
-                      e.type === "Rapid" ? (
-                        username.stats.chess_rapid.last.rating &&
-                        username.stats.chess_rapid.last.rating
-                      ) : e.type === "Blitz" ? (
-                        username.stats.chess_blitz.last.rating &&
-                        username.stats.chess_blitz.last.rating
-                      ) : e.type === "Bullet" ? (
-                        username.stats.chess_bullet.last.rating &&
-                        username.stats.chess_bullet.last.rating
-                      ) : e.type === "PuzzleRush" ? (
-                        username.stats.puzzle_rush.best.score &&
-                        username.stats.puzzle_rush.best.score
-                      ) : (
-                        <></>
-                      )}
-                    </h3>
-                  </div>
-                );
-              })}
-            </>
-          )}
+      {username.status !== "closed" && username.status !== "" ? (
+        username.stats && (
+          <div className="profileStats-container">
+            {loading ? (
+              <>
+                <span class="loader">
+                  <span class="loader-inner"></span>
+                </span>
+              </>
+            ) : (
+              <>
+                {statsData.map((e) => {
+                  return (
+                    <div className="stats-box">
+                      <div className="icon-box">{e.icon}</div>
+                      <h3>{e.type}</h3>
+                      <h3 className="rating">
+                        {username.status !== "closed" ? (
+                          e.type === "Rapid" &&
+                          username.stats.chess_rapid.last.rating
+                        ) : (
+                          <></>
+                        )}
+                        {username.status !== "closed" ? (
+                          e.type === "Blitz" &&
+                          username.stats.chess_blitz.last.rating
+                        ) : (
+                          <></>
+                        )}
+                        {username.status !== "closed" ? (
+                          e.type === "Bullet" &&
+                          username.stats.chess_bullet.last.rating
+                        ) : (
+                          <></>
+                        )}
+                        {console.log(
+                          Object.keys(username.stats.puzzle_rush).length
+                        )}
+                        {Object.keys(username.stats.puzzle_rush).length !== 0
+                          ? e.type === "PuzzleRush" &&
+                            username.stats.puzzle_rush.best.score
+                          : 0}
+                      </h3>
+                    </div>
+                  );
+                })}
+              </>
+            )}
+          </div>
+        )
+      ) : (
+        <div className="stats-box">
+          <h1 className="rating">User Not Found</h1>
         </div>
       )}
     </div>
