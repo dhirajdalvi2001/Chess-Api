@@ -29,6 +29,8 @@ const SearchResults = () => {
   }
   function fetchHistory() {
     username.avatar &&
+      username.status !== "closed" &&
+      username.status !== "" &&
       setSearchHistory([
         ...searchHistory,
         { id: nextId++, name: searchInputValue, avatar: username.avatar },
