@@ -141,27 +141,18 @@ const Profile = () => {
                       <div className="icon-box">{e.icon}</div>
                       <h3>{e.type}</h3>
                       <h3 className="rating">
-                        {username.status !== "closed" ? (
-                          e.type === "Rapid" &&
-                          username.stats.chess_rapid.last.rating
-                        ) : (
-                          <></>
-                        )}
-                        {username.status !== "closed" ? (
-                          e.type === "Blitz" &&
-                          username.stats.chess_blitz.last.rating
-                        ) : (
-                          <></>
-                        )}
-                        {username.status !== "closed" ? (
-                          e.type === "Bullet" &&
-                          username.stats.chess_bullet.last.rating
-                        ) : (
-                          <></>
-                        )}
-                        {console.log(
-                          Object.keys(username.stats.puzzle_rush).length
-                        )}
+                        {Object.keys(username.stats.puzzle_rush).length !== 0
+                          ? e.type === "Rapid" &&
+                            username.stats.chess_blitz.last.rating
+                          : 0}
+                        {Object.keys(username.stats.puzzle_rush).length !== 0
+                          ? e.type === "Blitz" &&
+                            username.stats.chess_blitz.last.rating
+                          : 0}
+                        {Object.keys(username.stats.puzzle_rush).length !== 0
+                          ? e.type === "Bullet" &&
+                            username.stats.chess_bullet.last.rating
+                          : 0}
                         {Object.keys(username.stats.puzzle_rush).length !== 0
                           ? e.type === "PuzzleRush" &&
                             username.stats.puzzle_rush.best.score
