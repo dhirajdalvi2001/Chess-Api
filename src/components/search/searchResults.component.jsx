@@ -35,6 +35,7 @@ const SearchResults = () => {
         ...searchHistory,
         { id: nextId++, name: searchInputValue, avatar: username.avatar },
       ]);
+    username.status === "" && setSearchInputValue("");
   }
   // useEffect(() => {
   //   console.log(username);
