@@ -143,7 +143,7 @@ const Profile = () => {
                       <h3 className="rating">
                         {Object.keys(username.stats.puzzle_rush).length !== 0
                           ? e.type === "Rapid" &&
-                            username.stats.chess_blitz.last.rating
+                            username.stats.chess_rapid.last.rating
                           : 0}
                         {Object.keys(username.stats.puzzle_rush).length !== 0
                           ? e.type === "Blitz" &&
